@@ -31,6 +31,10 @@ public class StepDefinitions implements En {
         Given("I search for product {string}", (String itemName) -> {
             landingPage.searchAnItem(itemName);
         });
+
+        And("I select item {string}", (String selectedItem) -> {
+            landingPage.selectItem(selectedItem);
+        });
         Given("I login into amazon with valid credentials", () -> {
             landingPage.enterUserNameAndPassword();
             if (navigationBar.getCartCount()>0)
@@ -59,6 +63,7 @@ public class StepDefinitions implements En {
         After(() -> {
             testContext.tearDown();
         });
+
 
 
     }

@@ -28,11 +28,7 @@ public class LandingPage extends BasePage {
     @FindBy(id = "nav-search-submit-button")
     WebElement searchButton;
 
-    @FindBy(xpath = " //span[text()='Mac Retro matte lipstick 3 g, Ruby Woo']")
-    WebElement productSelection;
-
     By addToCart = By.id("add-to-cart-button");
-
 
 
     public LandingPage(WebDriver driver) {
@@ -43,12 +39,14 @@ public class LandingPage extends BasePage {
     public void searchAnItem(String itemName) {
         searchTextBox.sendKeys(itemName);
         searchButton.click();
-        productSelection.click();
 
     }
 
-    public void addItemToCart()
-    {
+    public void selectItem(String selectedItem) {
+        searchElementByText(selectedItem).click();
+    }
+
+    public void addItemToCart() {
         waitAndGetElementBy(addToCart).click();
     }
 
