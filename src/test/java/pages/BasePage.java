@@ -35,6 +35,12 @@ public class BasePage {
         return driver.findElement(locator);
     }
 
+    protected WebElement searchElementByText(String text) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='"+text+"']")));
+        return driver.findElement(By.xpath("//span[text()='"+text+"']"));
+
+    }
+
     protected List<WebElement> waitAndGetElementsBy(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return driver.findElements(locator);
